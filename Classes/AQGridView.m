@@ -597,7 +597,7 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 		}
 		else if ( [reuseSet member: cell] == cell )
 		{
-			NSLog( @"Warning: tried to add duplicate gridview cell" );
+			//NSLog( @"Warning: tried to add duplicate gridview cell" );
 			continue;
 		}
 
@@ -1453,7 +1453,7 @@ passToSuper:
 	// updated: if we're adding it to our visibleCells collection, really it should be in the gridview.
 	if ( cell.superview == nil )
 	{
-		NSLog( @"Visible cell not in gridview - adding" );
+		//NSLog( @"Visible cell not in gridview - adding" );
 		if ( _backgroundView.superview == self )
 			[self insertSubview: cell aboveSubview: _backgroundView];
 		else
@@ -1658,13 +1658,13 @@ NSArray * __sortDescriptors;
                         if ( [newVisibleIndices containsIndex: cell.displayIndex] == NO &&
                             [animatingDestinationIndices containsIndex: cell.displayIndex] == NO )
                         {
-                            NSLog( @"Cell for index %lu is still in visible list, removing...", (unsigned long)cell.displayIndex );
+                            //NSLog( @"Cell for index %lu is still in visible list, removing...", (unsigned long)cell.displayIndex );
                             [cell removeFromSuperview];
                             [toRemove addIndex: i];
                         }
                         else if ( [seen containsIndex: cell.displayIndex] )
                         {
-                            NSLog( @"Multiple cells with index %lu found-- removing duplicate...", (unsigned long)cell.displayIndex );
+                            //NSLog( @"Multiple cells with index %lu found-- removing duplicate...", (unsigned long)cell.displayIndex );
                             [cell removeFromSuperview];
                             [toRemove addIndex: i];
                         }
@@ -1678,7 +1678,7 @@ NSArray * __sortDescriptors;
                 
                 if ( [_visibleCells count] < [newVisibleIndices count] )
                 {
-                    NSLog( @"Visible cell list is missing some items!" );
+                    //NSLog( @"Visible cell list is missing some items!" );
                     
                     NSMutableIndexSet * visibleSet = [[NSMutableIndexSet alloc] init];
                     for ( AQGridViewCell * cell in _visibleCells )
@@ -1689,7 +1689,7 @@ NSArray * __sortDescriptors;
                     NSMutableIndexSet * missingSet = [newVisibleIndices mutableCopy];
                     [missingSet removeIndexes: visibleSet];
                     
-                    NSLog( @"Got %lu missing indices", (unsigned long)[missingSet count] );
+                    //NSLog( @"Got %lu missing indices", (unsigned long)[missingSet count] );
                     
                     NSUInteger idx = [missingSet firstIndex];
                     while ( idx != NSNotFound )
