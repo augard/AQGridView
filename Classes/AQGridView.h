@@ -97,7 +97,7 @@ extern NSString * const AQGridViewSelectionDidChangeNotification;
 
 @interface AQGridView : UIScrollView
 {
-	id<AQGridViewDataSource>		__unsafe_unretained _dataSource;
+	id<AQGridViewDataSource>		__weak _dataSource;
 
 	AQGridViewData *				_gridData;
 	NSMutableArray *				_updateInfoStack;
@@ -112,7 +112,7 @@ extern NSString * const AQGridViewSelectionDidChangeNotification;
 	NSIndexSet *					_animatingIndices;
 
 	NSMutableIndexSet *				_highlightedIndices;
-	UIView *						__unsafe_unretained _touchedContentView;		// weak reference
+	UIView *						__weak _touchedContentView;		// weak reference
 
 	UIView *						_backgroundView;
 	UIColor *						_separatorColor;
@@ -168,8 +168,8 @@ extern NSString * const AQGridViewSelectionDidChangeNotification;
 	} _flags;
 }
 
-@property (nonatomic, unsafe_unretained) IBOutlet id<AQGridViewDataSource> dataSource;
-@property (nonatomic, unsafe_unretained) IBOutlet id<AQGridViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<AQGridViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<AQGridViewDelegate> delegate;
 
 @property (nonatomic, assign) AQGridViewLayoutDirection layoutDirection;
 
