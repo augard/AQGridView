@@ -45,7 +45,7 @@ typedef NSUInteger AQGridViewCellSeparatorEdge;
 
 @interface AQGridViewCell (AQGridViewCellPrivate)
 
-@property (nonatomic, retain) UIColor * separatorColor;
+@property (nonatomic, strong) UIColor * separatorColor;
 @property (nonatomic, assign) AQGridViewCellSeparatorStyle separatorStyle;
 @property (nonatomic, assign) AQGridViewCellSeparatorEdge separatorEdge;
 
