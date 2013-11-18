@@ -523,6 +523,8 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 	}
 
 	newSize.height = fmax(newSize.height, self.frame.size.height+1);
+    if (newSize.height == self.frame.size.height+1)
+        newSize.height -= self.contentInset.bottom + self.contentInset.top;
 
 	CGSize oldSize = self.contentSize;
 	[super setContentSize: newSize];

@@ -92,11 +92,11 @@
 	
 	// get a count of all rows before the one containing the point
 	NSUInteger y = (NSUInteger)floorf(point.y);
-	NSUInteger row = y / (NSUInteger)_actualCellSize.height;
+	NSUInteger row = y / _actualCellSize.height;
 	
 	// now column
 	NSUInteger x = (NSUInteger)floorf(point.x);
-	NSUInteger col = x / (NSUInteger)_actualCellSize.width;
+	NSUInteger col = x / _actualCellSize.width;
 	
 	NSUInteger result = (row * [self numberOfItemsPerRow]) + col;
 	if ( result >= self.numberOfItems )
