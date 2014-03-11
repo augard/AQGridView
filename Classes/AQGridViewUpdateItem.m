@@ -108,7 +108,7 @@
 			break;
 	}
 	
-	return ( [NSString stringWithFormat: @"%@{index=%u, action=%@, animation=%@, offset=%.2d}", [super description], (unsigned)_index, actionDesc, animationDesc, _offset] );
+	return ( [NSString stringWithFormat: @"%@{index=%u, action=%@, animation=%@, offset=%.2ld}", [super description], (unsigned)_index, actionDesc, animationDesc, (long)_offset] );
 }
 
 - (NSComparisonResult) compare: (AQGridViewUpdateItem *) other
@@ -128,7 +128,7 @@
 - (NSUInteger) index
 {
 	// handle case where offset is negative and would cause index to wrap
-	if ( (_offset < 0) && (abs(_offset) > _index) )
+	if ( (_offset < 0) && (abs((int)_offset) > _index) )
 		return ( 0 );
 	
 	return ( _index + _offset );
